@@ -1,0 +1,146 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="Login" class="com.exavalu.models.User" method="doLogin">
+            
+            <result name="USER">landingPage.jsp</result>
+            <result name="UNDERWRITER">landingPageUn.jsp</result>
+            <result name="INSURANCEOFFICER">fnolDetailsInsOffi.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action> 
+        <action name="InsertFnol" class="com.exavalu.models.Fnol" method="doInsertFnol">
+            
+            <result name="SUCCESS">enterFnol.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="checkStatus" class="com.exavalu.models.User" method="displayStatus">
+            
+            <result name="SUCCESS">fnolStatus.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="DisplayFnol" class="com.exavalu.models.Fnol" method="getAllFnol">
+            
+            <result name="SUCCESS">fnolDetails.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="ShowFnol" class="com.exavalu.models.Fnol" method="checkAllFnol">
+            
+            <result name="SUCCESS">fnolDetailsInsOffi.jsp</result>
+            <result name="FAILURE">menuInsuranceOfficer.jsp</result>
+        </action>
+        <action name="GetFNOLDetail" class="com.exavalu.models.Fnol" method="getFNOL">
+            
+            <result name="SUCCESS">printFNOLdetails.jsp</result>
+            <result name="FAILURE">fnolDetails.jsp</result>
+        </action>
+        <action name="ApproveUnderwriter" class="com.exavalu.models.Fnol" method="approveUnderwriter">
+            <result name="SUCCESS">fnolDetails.jsp</result>
+            <result name="FAILURE">menuUnderwriter.jsp</result>
+        </action>
+        <action name="RejectUnderwriter" class="com.exavalu.models.Fnol" method="rejectUnderwriter">
+            <result name="SUCCESS">fnolDetails.jsp</result>
+            <result name="FAILURE">menuUnderwriter.jsp</result>
+        </action>
+        <action name="ApproveFNOL" class="com.exavalu.models.Fnol" method="approveFNOL">
+            <result name="SUCCESS">printFNOLtable.jsp</result>
+            <result name="FAILURE">menuInsuranceOfficer.jsp</result>
+        </action>
+<!--        <action name="GetFNOL" class="com.exavalu.models.Fnol" method="getFNOL">
+            <result name="SUCCESS">printFNOLdetails_1.jsp</result>
+            <result name="FAILURE">menuInsuranceOfficer.jsp</result>
+        </action>-->
+        <action name="RejectFNOL" class="com.exavalu.models.Fnol" method="rejectFNOL">
+            <result name="SUCCESS">printFNOLtable.jsp</result>
+            <result name="FAILURE">menuInsuranceOfficer.jsp</result>
+        </action>
+        <action name="PolicyAPI" class="com.exavalu.models.Fnol" method="getPolicies">
+            <result name="SUCCESS">printJsonObject.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="GetPolicyDetails" class="com.exavalu.models.Fnol" method="getPolicyInfo">
+            <result name="SUCCESS">displayPolicyInfo.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        <action name="SearchDriver" class="com.exavalu.models.Fnol" method="getDriverInfo">
+            <result name="SUCCESS">displayDriverInfo.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        
+        <action name="getSearch" class="com.exavalu.models.Fnol" method="dummy">
+            <result name="SUCCESS">printDriverInfo.jsp</result>
+            <result name="FAILURE">menuUnderwriter.jsp</result>
+        </action>
+        
+        <action name="SearchDriverInfo" class="com.exavalu.models.Fnol" method="getDriverInfo">
+            <result name="SUCCESS">printDriverInfo.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action>
+        
+        
+<!--        <action name="EmployeeDetails" class="com.exavalu.models.Employee" method="displayEmployeeDetails">
+            
+            <result name="SUCCESS">employeelist.jsp</result>
+            <result name="FAILURE">menu.jsp</result>
+        </action> 
+        <action name="ConsumeAPI" class="com.exavalu.models.Employee" method="getDataFromAPI">
+            
+            <result name="SUCCESS">printJsonObject.jsp</result>
+            <result name="FAILURE">login.jsp</result>
+        </action> 
+        <action name="SignUp" class="com.exavalu.models.User" method="doSignup">
+            
+            <result name="SUCCESS">login.jsp</result>
+            <result name="FAILURE">landingPage.jsp</result>
+        </action>  
+-->     <action name="Logout" class="com.exavalu.models.User" method="doLogout">
+            
+            <result name="SUCCESS">landingPage.jsp</result>
+            <result name="FAILURE">error.jsp</result>
+        </action>    <!--
+        <action name="EditEmployee" class="com.exavalu.models.Employee" method="editEmployee">
+            
+            <result name="SUCCESS">editemployee.jsp</result>
+            <result name="FAILURE">error.jsp</result>
+        </action>
+        <action name="DeleteEmployee" class="com.exavalu.models.Employee" method="deleteEmployee">
+            
+            <result name="SUCCESS">employeeDetails.jsp</result>
+            <result name="FAILURE">error.jsp</result>
+        </action>    
+        <action name="SaveEmployee" class="com.exavalu.models.Employee" method="saveEmployee">
+            
+            <result name="SUCCESS">employeeDetails.jsp</result>
+            <result name="FAILURE">error.jsp</result>
+        </action>
+        <action name="SearchEmployee" class="com.exavalu.models.Employee" method="searchEmployee">
+            
+            <result name="SUCCESS">displaySearch.jsp</result>
+            <result name="FAILURE">error.jsp</result>
+        </action>  
+        <action name="DoAddEmployee" class="com.exavalu.models.Employee" method="startAddEmployee">
+            <result name="SUCCESS">addemployee.jsp</result>
+            <result name="FAILURE">landingPage.jsp</result>
+        </action>
+        <action name="DoSearchEmployee" class="com.exavalu.models.Employee" method="startSearchEmployee">
+            <result name="SUCCESS">searchEmployee.jsp</result>
+            <result name="FAILURE">landingPage.jsp</result>
+        </action> 
+        <action name="AddEmployee" class="com.exavalu.models.Employee" method="addEmployee">
+            <result name="SUCCESS">menu.jsp</result>
+            <result name="FAILURE">addemployee.jsp</result>
+        </action> 
+        <action name="PreSignUp" class="com.exavalu.models.User" method="doPreSignup">
+            
+            <result name="STATELIST">statelist.jsp</result>
+            <result name="DISTRICTLIST">districtlist.jsp</result>
+            <result name="SUCCESS">signup.jsp</result>
+            <result name="REGISTERED">login.jsp</result>
+            <result name="FAILURE">landingPage.jsp</result>
+        </action>   
+           -->
+    </package>
+</struts>
